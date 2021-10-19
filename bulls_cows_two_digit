@@ -1,0 +1,32 @@
+# bulls and cows game, only 2 digits
+
+# have a set number to guess, randomize that later
+# create variables
+right_ans = '22'
+guess = 0
+bull = 0
+
+# start loop asking for a guess, reset cows and bulls
+while guess != right_ans:
+    guess = str(input("guess a two digit number: "))
+    bull = 0
+    cows = 0
+
+# check and print bull count
+    if right_ans[0] == guess[0]:
+        bull += 1
+    if right_ans[1] == guess[1]:
+        bull += 1
+    print("Bulls:", bull)
+
+# check for cows, print count
+    if right_ans[0] != right_ans[1]:
+        if right_ans[0] == guess[1]:
+            cows += 1
+        if right_ans[1] == guess[0]:
+            cows += 1
+        print("Cows:", cows)
+
+# report score   
+if guess == right_ans:
+        print("You did it! That's the right number!")
