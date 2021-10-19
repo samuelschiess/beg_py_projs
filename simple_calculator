@@ -1,0 +1,26 @@
+# simple calculator
+
+while True:
+    num1 = float(input("1st num: "))
+    op = input("operation (+, -, *, **, /, //, %): ")
+    num2 = float(input("2nd num: "))
+    ans = "no answer"
+
+    if op == "+":
+        ans = num1 + num2
+    elif op == "-":
+        ans = num1 - num2
+    elif op == "*":
+        ans = num1 * num2
+    elif op == "**":
+        ans = num1 ** num2
+    elif op == "/":
+        ans = num1 / num2
+    elif op == "//":
+        ans = num1 // num2
+    elif op == "%":
+        ans = num1 % num2
+    else:
+        print("Sorry, that's not a recognized operative.")
+
+    print(ans)
