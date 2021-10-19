@@ -1,0 +1,94 @@
+# bulls and cows game, 4 digits
+
+# have a set number to guess, randomize that later
+# create variables
+right_ans = [1,2,3,4]
+guess = 0
+
+# start loop asking for a guess, reset right ans, cows, and bulls
+while True:
+    right_ans = [1,2,3,4]
+    if guess == right_ans:
+        print("You did it! That's the right number!")
+    else:
+        guess_before_list = str(input("guess a four digit number: "))
+        guess = []
+        for d in guess_before_list:
+            guess.append(int(d))
+        if len(guess) != 4:
+            print("Wrong number of digits, try again.")
+            continue
+        bull = 0
+        cows = 0
+
+# check and print bull count, delete bulls if they are found
+# start from position 3 and go down, so next positions aren't shifted if deleted
+        if right_ans[3] == guess[3]:
+            bull += 1
+            right_ans.remove(right_ans[3])
+            guess.remove(guess[3])
+        if right_ans[2] == guess[2]:
+            bull += 1
+            right_ans.remove(right_ans[2])
+            guess.remove(guess[2])
+        if right_ans[1] == guess[1]:
+            bull += 1
+            right_ans.remove(right_ans[1])
+            guess.remove(guess[1])
+        if right_ans[0] == guess[0]:
+            bull += 1
+            right_ans.remove(right_ans[0])
+            guess.remove(guess[0])
+        print("Bulls:", bull)
+        if bull == 4:
+            print("You did it!")
+            break
+
+# check for cows, based on how many digits are left. print cow count
+        if len(guess) == 1:
+            cows == 0
+        if len(guess) == 2:
+            if right_ans[0] == guess[1]:
+                cows += 1
+            if right_ans[1] == guess[0]:
+                cows += 1
+        if len(guess) == 3:
+            while len(guess) > 0:
+                #check spot zero for matches, delete matches if they are there
+                #delete spot zero and go through loop again until spot zero doesn't exist
+                if guess[0] == right_ans[2]:
+                    cows += 1
+                    guess.remove(guess[0])
+                elif guess[0] == right_ans[1]:
+                    cows += 1
+                    guess.remove(guess[0])
+                elif guess[0] == right_ans[0]:
+                    cows += 1
+                    guess.remove(guess[0])
+                else:
+                    guess.remove(guess[0])
+        if len(guess) == 4:
+            while len(guess) > 0:
+                #4 digit cow checker is very similar to 3 digit
+                if guess[0] == right_ans[3]:
+                    cows += 1
+                    right_ans.remove(right_ans[3])
+                    guess.remove(guess[0])
+                elif guess[0] == right_ans[2]:
+                    cows += 1
+                    right_ans.remove(right_ans[2])
+                    guess.remove(guess[0])
+                elif guess[0] == right_ans[1]:
+                    cows += 1
+                    right_ans.remove(right_ans[1])
+                    guess.remove(guess[0])
+                elif guess[0] == right_ans[0]:
+                    cows += 1
+                    guess.remove(guess[0])                    
+                else:
+                    guess.remove(guess[0])
+        print("Cows:", cows)
+
+
+# end of game        
+print("end of game")
