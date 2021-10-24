@@ -1,0 +1,16 @@
+arr = [7, 104, 68, 1, 204, 43, 34, 9, ]
+sort_arr = []
+
+while len(arr) > 0:
+    min_idx = arr[0]
+    print("top of loop")
+    for j in range(len(arr)):
+        if min_idx > arr[j]:
+            min_idx = arr[j]
+
+    low = min_idx
+    print(low)
+    arr.remove(min_idx)
+    sort_arr.append(min_idx)
+    print (arr)
+    print(sort_arr)
