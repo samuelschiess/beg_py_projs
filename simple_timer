@@ -1,0 +1,10 @@
+import time 
+
+for j in range(13):
+    hour = j
+    for i in range(60):
+        minute = i
+        for k in range(60):
+            time.sleep(1)
+            second = k 
+            print(hour, ":", minute, ":", second)
