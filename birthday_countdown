@@ -1,0 +1,37 @@
+# Birthday Calculator
+month_len = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+# Learn bday and current bday
+bday_month = int(input("What number is your birth month? "))
+bday_day = int(input("What day of the month is your birthday? "))
+
+tday_month = int(input("What number is today's month? "))
+tday_day = int(input("What day of the month is today? "))
+
+bday = 0
+tday = 0 
+
+# convert birthday into an integer
+for i in range(bday_month):
+    bday = bday + month_len[i]
+
+bday = bday + bday_day
+
+# convert today into an integer    
+for i in range(tday_month):
+    tday = tday + month_len[i]
+    
+tday = tday + tday_day
+
+print(bday, tday)
+
+# compare today and birthday to calculate the difference
+if bday > tday:
+    days = bday - tday
+    print("There are", days, "days until your birthday!")
+elif bday < tday:
+    days_to_end_of_year = 396 - tday
+    days = days_to_end_of_year + bday
+    print("There are", days, "days until your birthday!")
+else:
+    print("Today is your birthday!!! Enjoy your presents! :)")
