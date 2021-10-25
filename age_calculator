@@ -1,0 +1,33 @@
+# Age Calculator
+
+# set variables
+month_len = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+bday = 0
+tday = 0 
+
+# Learn bday
+bday_year = int(input("What is the four digit year you were born?"))
+bday_month = int(input("What number is your birth month? "))
+bday_day = int(input("What day of the month is your birthday? "))
+
+# convert birthday into an integer
+for i in range(bday_month):
+    bday = bday + month_len[i]
+bday = bday + bday_day
+
+# calculate current day
+from datetime import date 
+curr_date = date.today()
+
+# convert current day into an integer    
+for i in range(curr_date.month):
+    tday = tday + month_len[i] 
+tday = tday + curr_date.day
+
+# compare today and birthday to calculate the difference
+if bday > tday:
+    age = curr_date.year - bday_year - 1 
+    print("You are", age, "years old!")
+elif bday <= tday:
+    age = curr_date.year - bday_year
+    print("You are", age, "years old!")
