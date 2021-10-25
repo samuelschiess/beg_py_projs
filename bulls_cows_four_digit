@@ -90,5 +90,5 @@ while True:
         print("Cows:", cows)
 
 
-# end of game        
+# end of game f        
 print("end of game")
