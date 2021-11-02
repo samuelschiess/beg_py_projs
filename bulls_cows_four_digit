@@ -1,13 +1,20 @@
 # bulls and cows game, 4 digits
 
-# have a set number to guess, randomize that later
-# create variables
-right_ans = [1,2,3,4]
+# randomize a number to guess
+import random
+a = random.randint(0,9)
+b = random.randint(0,9)
+c = random.randint(0,9)
+x = random.randint(0,9)
+rand_number = [a, b, c, x]
+# print(rand_number)
+
+# create variable "guess"
 guess = 0
 
 # start loop asking for a guess, reset right ans, cows, and bulls
 while True:
-    right_ans = [1,2,3,4]
+    right_ans = [a, b, c, x]
     if guess == right_ans:
         print("You did it! That's the right number!")
     else:
