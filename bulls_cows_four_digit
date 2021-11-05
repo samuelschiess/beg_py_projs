@@ -55,89 +55,46 @@ while True:
             print("You did it!")
             break
 
-# check for cows, based on how many digits are left. print cow count
-        if len(guess) == 1:
-            cows == 0
+# check for cows, based on how many digits are left. Removes matched numbers from right_ans to avoid duplicate issues.
         
+        # If guess length is 1, there will be no cows to add. 
+
         if len(guess) == 2:
-            if right_ans[0] == guess[1]:
+            if guess[0] in right_ans:
                 cows += 1
-            if right_ans[1] == guess[0]:
+                right_ans.remove(guess[0])
+            if guess[1] in right_ans and guess[1] != guess[0]:
                 cows += 1
+                right_ans.remove(guess[1])
         
         if len(guess) == 3:
-            while len(guess) > 0:
-                #check spot zero for matches, delete matches if they are there
-                #delete spot zero and go through loop again until spot zero doesn't exist
-                if guess[0] == right_ans[2]:
-                    cows += 1
-                    guess.remove(guess[0])
-                elif guess[0] == right_ans[1]:
-                    cows += 1
-                    guess.remove(guess[0])
-                elif guess[0] == right_ans[0]:
-                    cows += 1
-                    guess.remove(guess[0])
-                else:
-                    guess.remove(guess[0])
-
-#4 digit cow checker is very similar to 3 digit
+            if guess[0] in right_ans:
+                cows += 1 
+                right_ans.remove(guess[0])
+            if guess[1] in right_ans and guess[1] != guess[0]:
+                cows += 1 
+                right_ans.remove(guess[1])
+            if guess[2] in right_ans and guess[2] != guess[0] and guess[2] != guess[1]:
+                cows += 1
+                right_ans.remove(guess[2])
+                    
         if len(guess) == 4:
-            while len(guess) > 0:
-                if len(right_ans) >= 4:
-                    if guess[0] == right_ans[3]:
-                        cows += 1
-                        right_ans.remove(right_ans[3])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[2]:
-                        cows += 1
-                        right_ans.remove(right_ans[2])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[1]:
-                        cows += 1
-                        right_ans.remove(right_ans[1])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[0]:
-                        cows += 1
-                        right_ans.remove(right_ans[0])
-                        guess.remove(guess[0]) 
-                    else:
-                        guess.remove(guess[0]) 
-                elif len(right_ans) >= 3:    
-                    if guess[0] == right_ans[2]:
-                        cows += 1
-                        right_ans.remove(right_ans[2])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[1]:
-                        cows += 1
-                        right_ans.remove(right_ans[1])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[0]:
-                        cows += 1
-                        right_ans.remove(right_ans[0])
-                        guess.remove(guess[0])
-                    else:
-                        guess.remove(guess[0]) 
-                elif len(right_ans) >= 2:    
-                    if guess[0] == right_ans[1]:
-                        cows += 1
-                        right_ans.remove(right_ans[1])
-                        guess.remove(guess[0])
-                    elif guess[0] == right_ans[0]:
-                        cows += 1
-                        right_ans.remove(right_ans[0])
-                        guess.remove(guess[0]) 
-                    else:
-                        guess.remove(guess[0]) 
-                elif len(right_ans) >= 1:    
-                    if guess[0] == right_ans[0]:
-                        cows += 1
-                        right_ans.remove(right_ans[0])
-                        guess.remove(guess[0])                    
-                    else:
-                        guess.remove(guess[0])
+            if guess[0] in right_ans:
+                cows += 1
+                right_ans.remove(guess[0])
+            if guess[1] in right_ans and guess[1] != guess[0]:
+                cows += 1 
+                right_ans.remove(guess[1])
+            if guess[2] in right_ans and guess[2] != guess[0] and guess[2] != guess[1]:
+                cows += 1 
+                right_ans.remove(guess[2])
+            if guess[3] in right_ans and guess[3] != guess[0] and guess[3] != guess[1] and guess[3] != guess[2]:
+                cows += 1
+                right_ans.remove(guess[3])
         print("Cows:", cows)
+        print('')
 
 
-# end of game f        
+
+# end of game         
 print("end of game")
