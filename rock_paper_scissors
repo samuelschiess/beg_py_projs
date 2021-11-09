@@ -53,5 +53,76 @@ while True:
 
     #if tie
     if your_hand == my_hand:
-        print("Whoops, it's a tie!")
+        print("Whoops, it's a tie!")from tkinter import *
+from random import randint
+
+def shootRock():
+    value = randint(0, 2)
+    if value == 0:
+        compMove = "Rock"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "It's a tie!"
+
+    if value == 1:
+        compMove = "Paper"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "Computer Wins!"
+
+    if value == 2:
+        compMove = "Scissors"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "You Win!"
+
+def shootPaper():
+    value = randint(0, 2)
+    if value == 0:
+        compMove = "Rock"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "You Win!"
+
+    if value == 1:
+        compMove = "Paper"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "It's a tie!"
+
+    if value == 2:
+        compMove = "Scissors"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "Computer Wins!"
+
+def shootScissors():
+    value = randint(0, 2)
+    if value == 0:
+        compMove = "Rock"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "Computer Wins!"
+
+    if value == 1:
+        compMove = "Paper"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "You Win!"
+
+    if value == 2:
+        compMove = "Scissors"
+        output["text"] = "Computer plays " + compMove
+        winner["text"] = "It's a tie!"
+        
+root = Tk()
+root.title("Rock, Paper, Scissors WORLD SERIES PRO5 ELITE VERSION")
+root.geometry("700x400")
+
+title = Label(root, text = "Let's Play!")
+rock = Button(root, text = "Rock", font = ("Serif", "20"), command = shootRock)
+paper = Button(root, text = "Paper", font = ("Serif", "20"), command = shootPaper)
+scissors = Button(root, text = "Scissors", font = ("Serif", "20"), command = shootScissors)
+output = Label(root, font = ("Serif", "40"))
+winner = Label()
+title.pack()
+rock.pack()
+paper.pack()
+scissors.pack()
+output.pack()
+winner.pack()
+
+root.mainloop()
         
