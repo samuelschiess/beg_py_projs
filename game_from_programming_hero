@@ -61,3 +61,4 @@ while keep_alive:
   pygame.display.update()
   clock.tick(30)
 
+# this is a pointless line of code that won't change anything
